@@ -1,7 +1,9 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { CREATE_EVENT, DELETE_ALL_EVENTS } from '../actions'
+import AppContext from '../contexts/AppContext'
 
-const EventForm = ({state, dispatch}) => {
+const EventForm = () => {
+    const {state, dispatch} = useContext(AppContext)
     const [title, setTitle] = useState('')
     const [body, setBody] = useState('')
   
@@ -30,13 +32,6 @@ const EventForm = ({state, dispatch}) => {
     <>
       <h4>イベント作成フォーム</h4>
       <form >
-        <div>
-            
-
-
-        </div>
-
-        
         <div className="form-group">
           <label htmlFor="formEventTitle">タイトル</label>
           <input className="form-control" id="formEventTitle" value={title} onChange={e => {setTitle(e.target.value)}} />
